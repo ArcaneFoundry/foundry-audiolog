@@ -89,7 +89,7 @@ Override to conditionally exclude the `edit` part from rendering:
 
 **`#onPlay(event, target)`**
 - Guard: no-op if `audioPath` is empty
-- If `_currentSound` exists and is paused, resume via `_currentSound.play()`
+- If `_currentSound` exists and `_currentSound.paused` is true, resume via `_currentSound.play()`
 - Otherwise, `await AudioHelper.play({ src: audioPath, volume: game.settings.get("core", "globalInterfaceVolume"), loop: false })`
 - Store the resolved `Sound` in `_currentSound`
 - Handler must be `async` since `AudioHelper.play()` returns `Promise<Sound>`
