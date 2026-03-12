@@ -1,6 +1,19 @@
 {
   "AUDIOLOG": {
     "title": "Foundry Audiology",
-    "pageType": "Audio Log"
+    "pageType": "Audio Log",
+    "themes": {
+      "generic": "Generic",
+      "fantasy": "Fantasy / Arcane",
+      "steampunk": "Steampunk",
+      "cyberpunk": "Cyberpunk",
+      "modern": "Modern",
+      "futuristic": "Futuristic"
+    }
+  },
+  "TYPES": {
+    "JournalEntryPage": {
+      "foundry-audiolog.audiolog": "Audio Log"
+    }
   }
 }
