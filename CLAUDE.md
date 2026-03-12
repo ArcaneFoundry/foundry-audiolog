@@ -49,5 +49,5 @@ Update `~/Vaults/Code Projects/FoundryVTT/FoundryAudiology/Development Tasks.md`
 ### 3. Deploy to Foundry server
 
 ```bash
-rsync -avz --delete "dist/" deploy@foundry.digitalframeworks.org:/var/foundrydata/Data/modules/foundry-audiolog/
+rsync -avz --delete "dist/" root@foundry.digitalframeworks.org:/var/foundrydata/Data/modules/foundry-audiolog/
 ```
