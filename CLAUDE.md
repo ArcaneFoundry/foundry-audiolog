@@ -2,7 +2,7 @@
 
 ## Project Vault
 
-The Obsidian vault at `~/Vaults/Code Projects/Foundry VTT/Foundry Audiology/` contains project documentation:
+The Obsidian vault at `~/Vaults/Code Projects/FoundryVTT/FoundryAudiology/` contains project documentation:
 
 | Document | Purpose |
 |----------|---------|
@@ -42,7 +42,7 @@ Verify the build succeeds with no TypeScript errors.
 
 ### 2. Update Development Tasks
 
-Update `~/Vaults/Code Projects/Foundry VTT/Foundry Audiology/Development Tasks.md`:
+Update `~/Vaults/Code Projects/FoundryVTT/FoundryAudiology/Development Tasks.md`:
 - Mark completed tasks as `[x]`
 - Add notes for notable decisions
 
