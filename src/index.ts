@@ -5,6 +5,7 @@
  * treatments, audio playback controls, and optional transcripts.
  */
 
+import "./styles/index.css";
 import { createAudioLogPageModel } from "./models/AudioLogPageModel.js";
 import { createAudioLogPageSheet, MODULE_ID } from "./sheets/AudioLogPageSheet.js";
 
