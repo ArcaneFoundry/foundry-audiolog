@@ -1,0 +1,44 @@
+# Node & dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build output
+dist/
+build/
+*.zip
+*.tar.gz
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Foundry-related local files
+foundryconfig.json
+.env
+.env.*
+__modules__/
+modules/
+
+# Test/coverage
+coverage/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
