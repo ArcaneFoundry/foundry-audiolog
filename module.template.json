@@ -11,6 +11,17 @@
   ],
   "url": "https://github.com/ArcaneFoundry/foundry-audiolog",
   "license": "MIT",
+  "documentTypes": {
+    "JournalEntryPage": {
+      "audiolog": {
+        "htmlFields": ["transcript"],
+        "filePathFields": {
+          "audioPath": ["AUDIO"],
+          "imagePath": ["IMAGE"]
+        }
+      }
+    }
+  },
   "compatibility": {
     "minimum": "13",
     "verified": "13"

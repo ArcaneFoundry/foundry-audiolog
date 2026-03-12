@@ -1,0 +1,55 @@
+{{!-- Stub diagnostic template — replaced in Phase 2 --}}
+<div class="audiolog-stub">
+  {{#if isView}}
+    <h3>Audio Log (Stub View)</h3>
+    <dl>
+      <dt>Theme</dt>
+      <dd>{{system.theme}}</dd>
+
+      <dt>Audio</dt>
+      <dd>{{#if system.audioPath}}{{system.audioPath}}{{else}}<em>No audio file</em>{{/if}}</dd>
+
+      <dt>Image</dt>
+      <dd>{{#if system.imagePath}}{{system.imagePath}}{{else}}<em>No image</em>{{/if}}</dd>
+
+      <dt>Controls</dt>
+      <dd>Play: {{system.controls.play}} | Pause: {{system.controls.pause}} | Stop: {{system.controls.stop}}</dd>
+
+      {{#if system.transcript}}
+        <dt>Transcript</dt>
+        <dd>{{{system.transcript}}}</dd>
+      {{/if}}
+    </dl>
+  {{else}}
+    <h3>Audio Log (Stub Edit)</h3>
+
+    <div class="form-group">
+      <label for="system.theme">Theme</label>
+      <select name="system.theme">
+        {{selectOptions themeChoices selected=system.theme}}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="system.audioPath">Audio File</label>
+      <input type="text" name="system.audioPath" value="{{system.audioPath}}" placeholder="path/to/audio.ogg" />
+    </div>
+
+    <div class="form-group">
+      <label for="system.imagePath">Image</label>
+      <input type="text" name="system.imagePath" value="{{system.imagePath}}" placeholder="path/to/image.webp" />
+    </div>
+
+    <fieldset>
+      <legend>Visible Controls</legend>
+      <label><input type="checkbox" name="system.controls.play" {{checked system.controls.play}} /> Play</label>
+      <label><input type="checkbox" name="system.controls.pause" {{checked system.controls.pause}} /> Pause</label>
+      <label><input type="checkbox" name="system.controls.stop" {{checked system.controls.stop}} /> Stop</label>
+    </fieldset>
+
+    <div class="form-group">
+      <label for="system.transcript">Transcript</label>
+      <textarea name="system.transcript" rows="6">{{system.transcript}}</textarea>
+    </div>
+  {{/if}}
+</div>
