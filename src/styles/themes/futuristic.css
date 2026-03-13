@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Theme: Futuristic
+   Dark blue with soft blue glow. Glass-panel feel via blue tint. Monospace.
+   ========================================================================== */
+
+.audiolog-theme-futuristic {
+  --audiolog-bg: #0a1428;
+  --audiolog-border: 1px solid rgba(100, 180, 255, 0.25);
+  --audiolog-radius: 8px;
+  --audiolog-shadow: 0 0 20px rgba(100, 180, 255, 0.08), 0 4px 16px rgba(0, 0, 0, 0.4);
+  --audiolog-img-radius: 4px 4px 0 0;
+  --audiolog-controls-bg: rgba(5, 10, 25, 0.7);
+  --audiolog-controls-color: #64b4ff;
+  --audiolog-controls-hover: #a0d4ff;
+  --audiolog-transcript-color: rgba(100, 180, 255, 0.5);
+  --audiolog-transcript-bg: transparent;
+  --audiolog-transcript-fade: #0a1428;
+  --audiolog-font: 'Courier New', Courier, monospace;
+}
+
+/* Subtle blue glow around image */
+.audiolog-theme-futuristic .audiolog-image {
+  box-shadow: 0 0 12px rgba(100, 180, 255, 0.1);
+}
