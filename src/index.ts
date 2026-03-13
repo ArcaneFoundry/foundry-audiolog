@@ -6,10 +6,37 @@
  */
 
 import "./styles/index.css";
-import { createAudioLogPageModel } from "./models/AudioLogPageModel.js";
+import { createAudioLogPageModel, DEFAULT_THEME_IMAGES } from "./models/AudioLogPageModel.js";
 import { createAudioLogPageSheet, MODULE_ID } from "./sheets/AudioLogPageSheet.js";
 
 const PAGE_TYPE = `${MODULE_ID}.audiolog`;
+
+/**
+ * Auto-set the default theme image when a GM changes the theme
+ * and the imagePath field is currently empty.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+Hooks.on("preUpdateJournalEntryPage", (page: any, changes: any, _options: any, _userId: any) => {
+  // Only act on our page type
+  if (page.type !== PAGE_TYPE) return;
+
+  // Only act when theme is changing
+  const newTheme = changes?.system?.theme;
+  if (!newTheme) return;
+
+  // If imagePath is being explicitly set/cleared in this same update, don't interfere
+  const imageInChanges = "imagePath" in (changes?.system ?? {});
+  if (imageInChanges) return;
+
+  // Only act when the document's current imagePath is empty
+  if (page.system.imagePath) return;
+
+  // newTheme being truthy guarantees changes.system exists
+  const defaultImage = DEFAULT_THEME_IMAGES[newTheme as keyof typeof DEFAULT_THEME_IMAGES];
+  if (defaultImage) {
+    changes.system.imagePath = defaultImage;
+  }
+});
 
 Hooks.once("init", () => {
   console.log(`${MODULE_ID} | Initializing`);
