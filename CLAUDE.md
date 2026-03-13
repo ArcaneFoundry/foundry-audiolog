@@ -1,13 +1,32 @@
 # Foundry Audiology — Claude Instructions
 
+## Working Directory
+
+Claude sessions start from this repo root (`~/CodeProjects/foundry-audiolog`).
+
 ## Project Vault
 
-The Obsidian vault at `~/Vaults/Code Projects/FoundryVTT/FoundryAudiology/` contains project documentation:
+This project has an Obsidian vault for issue tracking, handoffs, and project docs at:
 
-| Document | Purpose |
-|----------|---------|
-| **Specifications.md** | Feature design, audio log page type, five style themes, technical architecture, data schema, and Foundry API approach. **Read before implementing anything.** |
-| **Development Tasks.md** | Ordered task list for implementation. **Check this first** to understand what to work on next. |
+```
+~/Vaults/Code Projects/FoundryVTT/FoundryAudiology/
+```
+
+The vault is managed by the **vaultkeeper** plugin. On session start:
+
+1. Read this file (you're here)
+2. Read the vault's `CLAUDE.md` at the path above for vault structure and automation details
+3. Check `Active/` in the vault for in-progress issues
+4. Read the latest handoff in `Handoffs/` if one exists
+5. Present a brief summary and **wait for the user's direction**
+
+| Vault Document | Purpose |
+|----------------|---------|
+| `CLAUDE.md` | Vault structure, folder layout, automation expectations |
+| `Active/` | In-progress issue tracking documents |
+| `Handoffs/` | Session handoff documents with resume prompts |
+| `Project/` | Architecture, coding style, dependencies, changelog |
+| `Archive/` | Completed issues |
 
 ## Skills
 
@@ -19,8 +38,6 @@ Always invoke these skills when working on this project:
 ## Build & Dev
 
 ```bash
-cd ~/CodeProjects/foundry-audiolog
-
 npm run build        # Typecheck + Vite build + manifest
 npm run dev          # Vite watch mode
 npm run typecheck    # TypeScript only
@@ -35,18 +52,12 @@ After completing any task:
 ### 1. Build the project
 
 ```bash
-cd ~/CodeProjects/foundry-audiolog && npm run build
+npm run build
 ```
 
 Verify the build succeeds with no TypeScript errors.
 
-### 2. Update Development Tasks
-
-Update `~/Vaults/Code Projects/FoundryVTT/FoundryAudiology/Development Tasks.md`:
-- Mark completed tasks as `[x]`
-- Add notes for notable decisions
-
-### 3. Deploy to Foundry server
+### 2. Deploy to Foundry server
 
 ```bash
 rsync -avz --delete "dist/" root@foundry.digitalframeworks.org:/var/foundrydata/Data/modules/foundry-audiolog/
