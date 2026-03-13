@@ -24,20 +24,18 @@ Hooks.on("preUpdateJournalEntryPage", (page: any, changes: any, _options: any, _
   const newTheme = changes?.system?.theme;
   if (!newTheme) return;
 
-  // If imagePath is being set to a non-empty value in this update, the GM chose a
-  // custom image — don't interfere. Note: submitOnChange sends ALL form fields
-  // including imagePath="" even when the GM only changed the theme, so we check
-  // for a truthy value rather than mere presence in the changes object.
-  if (changes?.system?.imagePath) return;
-
-  // If the current imagePath is empty OR is one of our bundled defaults, swap it.
-  // If it's a custom GM-provided image, leave it alone.
+  const changesImagePath = changes?.system?.imagePath;
   const currentImage = page.system.imagePath;
   const defaultImages = new Set(Object.values(DEFAULT_THEME_IMAGES));
-  if (currentImage && !defaultImages.has(currentImage)) return;
-
-  // newTheme being truthy guarantees changes.system exists
+  const isDefault = defaultImages.has(currentImage);
   const defaultImage = DEFAULT_THEME_IMAGES[newTheme as keyof typeof DEFAULT_THEME_IMAGES];
+
+  // If the GM is explicitly setting a custom (non-default) image, don't interfere.
+  if (changesImagePath && !defaultImages.has(changesImagePath)) return;
+
+  // If the current imagePath is a custom GM-provided image and not being changed, leave it.
+  if (currentImage && !isDefault && !changesImagePath) return;
+
   if (defaultImage) {
     changes.system.imagePath = defaultImage;
   }
