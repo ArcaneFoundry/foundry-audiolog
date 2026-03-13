@@ -46,5 +46,5 @@
     }
   ],
   "manifest": "https://raw.githubusercontent.com/ArcaneFoundry/foundry-audiolog/main/module.json",
-  "download": "https://github.com/ArcaneFoundry/foundry-audiolog/releases/latest/download/foundry-audiolog.zip"
+  "download": "https://github.com/ArcaneFoundry/foundry-audiolog/releases/download/v0.1.0/foundry-audiolog-v0.1.0.zip"
 }
