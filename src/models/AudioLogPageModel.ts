@@ -18,11 +18,11 @@ export type AudioLogTheme = (typeof AUDIO_LOG_THEMES)[number];
  * Generic is absent — it has no default image.
  */
 export const DEFAULT_THEME_IMAGES: Partial<Record<AudioLogTheme, string>> = {
-  fantasy: "modules/foundry-audiolog/assets/themes/fantasy.webp",
-  steampunk: "modules/foundry-audiolog/assets/themes/steampunk.webp",
-  cyberpunk: "modules/foundry-audiolog/assets/themes/cyberpunk.webp",
-  modern: "modules/foundry-audiolog/assets/themes/modern.webp",
-  futuristic: "modules/foundry-audiolog/assets/themes/futuristic.webp",
+  fantasy: "modules/foundry-audiolog/assets/themes/fantasy.jpg",
+  steampunk: "modules/foundry-audiolog/assets/themes/steampunk.jpg",
+  cyberpunk: "modules/foundry-audiolog/assets/themes/cyberpunk.jpg",
+  modern: "modules/foundry-audiolog/assets/themes/modern.jpg",
+  futuristic: "modules/foundry-audiolog/assets/themes/futuristic.jpg",
 };
 
 /**
