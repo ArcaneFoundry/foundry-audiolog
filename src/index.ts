@@ -30,8 +30,11 @@ Hooks.on("preUpdateJournalEntryPage", (page: any, changes: any, _options: any, _
   // for a truthy value rather than mere presence in the changes object.
   if (changes?.system?.imagePath) return;
 
-  // Only act when the document's current imagePath is empty
-  if (page.system.imagePath) return;
+  // If the current imagePath is empty OR is one of our bundled defaults, swap it.
+  // If it's a custom GM-provided image, leave it alone.
+  const currentImage = page.system.imagePath;
+  const defaultImages = new Set(Object.values(DEFAULT_THEME_IMAGES));
+  if (currentImage && !defaultImages.has(currentImage)) return;
 
   // newTheme being truthy guarantees changes.system exists
   const defaultImage = DEFAULT_THEME_IMAGES[newTheme as keyof typeof DEFAULT_THEME_IMAGES];
