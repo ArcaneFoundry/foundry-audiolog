@@ -39,7 +39,10 @@ Hooks.once("init", () => {
   );
 
   // Preload templates
-  loadTemplates([`modules/${MODULE_ID}/templates/stub-view.hbs`]);
+  loadTemplates([
+    `modules/${MODULE_ID}/templates/audio-log-view.hbs`,
+    `modules/${MODULE_ID}/templates/audio-log-edit.hbs`,
+  ]);
 });
 
 Hooks.once("ready", () => {
