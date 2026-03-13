@@ -13,6 +13,19 @@ export const AUDIO_LOG_THEMES = [
 export type AudioLogTheme = (typeof AUDIO_LOG_THEMES)[number];
 
 /**
+ * Default bundled images for each theme.
+ * Paths are relative to the Foundry module root (public/ maps to module root at runtime).
+ * Generic is absent — it has no default image.
+ */
+export const DEFAULT_THEME_IMAGES: Partial<Record<AudioLogTheme, string>> = {
+  fantasy: "modules/foundry-audiolog/assets/themes/fantasy.webp",
+  steampunk: "modules/foundry-audiolog/assets/themes/steampunk.webp",
+  cyberpunk: "modules/foundry-audiolog/assets/themes/cyberpunk.webp",
+  modern: "modules/foundry-audiolog/assets/themes/modern.webp",
+  futuristic: "modules/foundry-audiolog/assets/themes/futuristic.webp",
+};
+
+/**
  * Factory that creates the AudioLogPageModel class at runtime.
  * Must be called inside the `init` hook — Foundry globals are not
  * available at ES module parse time.
