@@ -28,6 +28,7 @@ Defined on `.audiolog-view`, consumed by child selectors:
 | `--audiolog-controls-hover` | Controls hover color | `#fff` |
 | `--audiolog-transcript-color` | Transcript text color | `rgba(255,255,255,0.7)` |
 | `--audiolog-transcript-bg` | Transcript area background | `transparent` |
+| `--audiolog-transcript-fade` | Gradient fade endpoint for collapsed transcript | `#1a1a2e` |
 | `--audiolog-font` | Font family (applied to `.audiolog-view`) | `inherit` |
 
 ## View Layout (`.audiolog-view`)
