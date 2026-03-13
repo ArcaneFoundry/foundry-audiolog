@@ -1,0 +1,19 @@
+/* ==========================================================================
+   Theme: Modern
+   Clean dark grey with subtle borders. Large radius. System sans-serif.
+   ========================================================================== */
+
+.audiolog-theme-modern {
+  --audiolog-bg: #1e1e26;
+  --audiolog-border: 1px solid rgba(255, 255, 255, 0.08);
+  --audiolog-radius: 12px;
+  --audiolog-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --audiolog-img-radius: 10px 10px 0 0;
+  --audiolog-controls-bg: rgba(0, 0, 0, 0.2);
+  --audiolog-controls-color: #aaa;
+  --audiolog-controls-hover: #fff;
+  --audiolog-transcript-color: rgba(255, 255, 255, 0.5);
+  --audiolog-transcript-bg: transparent;
+  --audiolog-transcript-fade: #1e1e26;
+  --audiolog-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
