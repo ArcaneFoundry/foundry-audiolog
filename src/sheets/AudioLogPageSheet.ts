@@ -27,33 +27,31 @@ export function createAudioLogPageSheet() {
       form: {
         submitOnChange: true,
       },
-      // Actions are assigned after class definition (see below) because
-      // static self-references like AudioLogPageSheet.onPlay don't work
-      // inside class expressions — the name isn't bound yet.
       actions: {} as Record<string, Function>,
     };
 
-    static PARTS = {
-      view: {
-        template: `modules/${MODULE_ID}/templates/audio-log-view.hbs`,
-        scrollable: [".audiolog-view"],
-      },
-      edit: {
+    /**
+     * Edit mode parts: parent header + our content + parent footer.
+     * Follows the same pattern as JournalEntryPageImageSheet etc.
+     */
+    static EDIT_PARTS = {
+      header: (BaseSheet as any).EDIT_PARTS.header,
+      content: {
         template: `modules/${MODULE_ID}/templates/audio-log-edit.hbs`,
+        classes: ["standard-form"],
       },
+      footer: (BaseSheet as any).EDIT_PARTS.footer,
     };
 
     /**
-     * Conditionally exclude the edit PART when in view mode.
-     * Standard V13 ApplicationV2 pattern for conditional PARTS rendering.
+     * View mode parts: just our content template.
      */
-    _configureRenderOptions(options: any) {
-      super._configureRenderOptions(options);
-      const isView = (this as any).isView ?? true;
-      if (isView && options.parts) {
-        options.parts = options.parts.filter((p: string) => p !== "edit");
-      }
-    }
+    static VIEW_PARTS = {
+      content: {
+        template: `modules/${MODULE_ID}/templates/audio-log-view.hbs`,
+        scrollable: [".audiolog-view"],
+      },
+    };
 
     async _prepareContext(options: object) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -173,13 +171,13 @@ export function createAudioLogPageSheet() {
   // Assign actions after class definition — self-references like
   // AudioLogPageSheet.onPlay don't work inside the class expression body
   // because the class name isn't bound until the expression completes.
-  AudioLogPageSheet.DEFAULT_OPTIONS.actions = {
+  Object.assign(AudioLogPageSheet.DEFAULT_OPTIONS.actions, {
     play: AudioLogPageSheet.onPlay,
     pause: AudioLogPageSheet.onPause,
     stop: AudioLogPageSheet.onStop,
     browseAudio: AudioLogPageSheet.onBrowseAudio,
     browseImage: AudioLogPageSheet.onBrowseImage,
-  };
+  });
 
   return AudioLogPageSheet;
 }
