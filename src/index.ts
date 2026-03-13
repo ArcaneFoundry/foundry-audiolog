@@ -24,9 +24,11 @@ Hooks.on("preUpdateJournalEntryPage", (page: any, changes: any, _options: any, _
   const newTheme = changes?.system?.theme;
   if (!newTheme) return;
 
-  // If imagePath is being explicitly set/cleared in this same update, don't interfere
-  const imageInChanges = "imagePath" in (changes?.system ?? {});
-  if (imageInChanges) return;
+  // If imagePath is being set to a non-empty value in this update, the GM chose a
+  // custom image — don't interfere. Note: submitOnChange sends ALL form fields
+  // including imagePath="" even when the GM only changed the theme, so we check
+  // for a truthy value rather than mere presence in the changes object.
+  if (changes?.system?.imagePath) return;
 
   // Only act when the document's current imagePath is empty
   if (page.system.imagePath) return;
