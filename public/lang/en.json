@@ -9,6 +9,18 @@
       "cyberpunk": "Cyberpunk",
       "modern": "Modern",
       "futuristic": "Futuristic"
+    },
+    "fields": {
+      "theme": "Theme",
+      "audioPath": "Audio File",
+      "imagePath": "Image",
+      "controls": "Visible Controls",
+      "transcript": "Transcript"
+    },
+    "controls": {
+      "play": "Play",
+      "pause": "Pause",
+      "stop": "Stop"
     }
   },
   "TYPES": {
