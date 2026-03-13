@@ -1,0 +1,50 @@
+{
+  "id": "foundry-audiolog",
+  "title": "Foundry Audiology: Audio Logs for Foundry VTT",
+  "description": "Adds a custom Audio Log JournalEntryPage type — immersive audio diaries with themed visual treatments, playback controls, and optional transcripts.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "John Gallego",
+      "url": "https://github.com/JohnGallego"
+    }
+  ],
+  "url": "https://github.com/ArcaneFoundry/foundry-audiolog",
+  "license": "MIT",
+  "documentTypes": {
+    "JournalEntryPage": {
+      "audiolog": {
+        "htmlFields": [
+          "transcript"
+        ],
+        "filePathFields": {
+          "audioPath": [
+            "AUDIO"
+          ],
+          "imagePath": [
+            "IMAGE"
+          ]
+        }
+      }
+    }
+  },
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "esmodules": [
+    "index.js"
+  ],
+  "styles": [
+    "styles.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "manifest": "https://raw.githubusercontent.com/ArcaneFoundry/foundry-audiolog/main/module.json",
+  "download": "https://github.com/ArcaneFoundry/foundry-audiolog/releases/latest/download/foundry-audiolog.zip"
+}
