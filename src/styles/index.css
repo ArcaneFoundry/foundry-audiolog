@@ -5,3 +5,8 @@
  * Vite will bundle everything into a single styles.css.
  */
 @import "./base-layout.css";
+@import "./themes/fantasy.css";
+@import "./themes/steampunk.css";
+@import "./themes/cyberpunk.css";
+@import "./themes/modern.css";
+@import "./themes/futuristic.css";
