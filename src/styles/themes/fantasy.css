@@ -1,0 +1,26 @@
+/* ==========================================================================
+   Theme: Fantasy / Arcane
+   Deep purple-black with arcane violet glow. Serif typography.
+   ========================================================================== */
+
+.audiolog-theme-fantasy {
+  --audiolog-bg: #1c1026;
+  --audiolog-border: 1px solid rgba(147, 112, 219, 0.3);
+  --audiolog-radius: 8px;
+  --audiolog-shadow: 0 0 20px rgba(147, 112, 219, 0.15), 0 2px 12px rgba(0, 0, 0, 0.5);
+  --audiolog-img-radius: 4px 4px 0 0;
+  --audiolog-controls-bg: rgba(20, 10, 35, 0.8);
+  --audiolog-controls-color: #b39ddb;
+  --audiolog-controls-hover: #d1c4e9;
+  --audiolog-transcript-color: rgba(179, 157, 219, 0.7);
+  --audiolog-transcript-bg: transparent;
+  --audiolog-transcript-fade: #1c1026;
+  --audiolog-font: Georgia, 'Times New Roman', serif;
+}
+
+/* Subtle arcane radial glow on card background */
+.audiolog-theme-fantasy {
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(147, 112, 219, 0.06) 0%, transparent 70%),
+    var(--audiolog-bg);
+}
