@@ -53,11 +53,10 @@ Hooks.once("init", () => {
   // which doesn't satisfy the strict CONFIG.JournalEntryPage.dataModels index type.
   (CONFIG.JournalEntryPage.dataModels as any)[PAGE_TYPE] = AudioLogPageModel;
 
-  // Register the stub sheet as the default for audiolog pages.
+  // Register the sheet as the default for audiolog pages.
   // Cast sheet to `any` because fvtt-types expects a specific ApplicationV2 subtype
   // that our factory-returned class doesn't statically satisfy.
-  // Cast JournalEntryPage to `any` because the global may not be typed in fvtt-types.
-  DocumentSheetConfig.registerSheet(
+  foundry.applications.apps.DocumentSheetConfig.registerSheet(
     JournalEntryPage as any,
     MODULE_ID,
     AudioLogPageSheet as any,
@@ -69,7 +68,7 @@ Hooks.once("init", () => {
   );
 
   // Preload templates
-  loadTemplates([
+  foundry.applications.handlebars.loadTemplates([
     `modules/${MODULE_ID}/templates/audio-log-view.hbs`,
     `modules/${MODULE_ID}/templates/audio-log-edit.hbs`,
   ]);
