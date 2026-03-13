@@ -127,6 +127,24 @@ export function createAudioLogPageSheet() {
     }
 
     /**
+     * Toggle the transcript between collapsed and expanded.
+     */
+    static onToggleTranscript(this: InstanceType<typeof AudioLogPageSheet>, _event: Event, target: HTMLElement) {
+      const wrapper = target.closest(".audiolog-transcript-wrapper");
+      if (!wrapper) return;
+      const isExpanded = wrapper.hasAttribute("data-expanded");
+      if (isExpanded) {
+        wrapper.removeAttribute("data-expanded");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        target.textContent = (game.i18n as any).localize("AUDIOLOG.controls.showTranscript");
+      } else {
+        wrapper.setAttribute("data-expanded", "");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        target.textContent = (game.i18n as any).localize("AUDIOLOG.controls.hideTranscript");
+      }
+    }
+
+    /**
      * Open a FilePicker for audio file selection.
      */
     static onBrowseAudio(this: InstanceType<typeof AudioLogPageSheet>, _event: Event, _target: HTMLElement) {
@@ -177,6 +195,7 @@ export function createAudioLogPageSheet() {
     stop: AudioLogPageSheet.onStop,
     browseAudio: AudioLogPageSheet.onBrowseAudio,
     browseImage: AudioLogPageSheet.onBrowseImage,
+    toggleTranscript: AudioLogPageSheet.onToggleTranscript,
   });
 
   return AudioLogPageSheet;

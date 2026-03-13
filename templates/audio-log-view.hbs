@@ -6,27 +6,31 @@
   {{/if}}
 
   <div class="audiolog-controls">
-    {{#if system.controls.play}}
+    {{~#if system.controls.play~}}
       <button type="button" data-action="play" {{#unless hasAudio}}disabled{{/unless}}>
         <i class="fa-solid fa-play"></i>
       </button>
-    {{/if}}
-    {{#if system.controls.pause}}
+    {{~/if~}}
+    {{~#if system.controls.pause~}}
       <button type="button" data-action="pause" {{#unless hasAudio}}disabled{{/unless}}>
         <i class="fa-solid fa-pause"></i>
       </button>
-    {{/if}}
-    {{#if system.controls.stop}}
+    {{~/if~}}
+    {{~#if system.controls.stop~}}
       <button type="button" data-action="stop" {{#unless hasAudio}}disabled{{/unless}}>
         <i class="fa-solid fa-stop"></i>
       </button>
-    {{/if}}
+    {{~/if~}}
   </div>
 
   {{#if system.transcript}}
-    <div class="audiolog-transcript">
-      {{!-- Triple-stache is safe: Foundry's HTMLField sanitizes on save --}}
-      {{{system.transcript}}}
+    <div class="audiolog-transcript-wrapper">
+      <div class="audiolog-transcript">
+        {{{system.transcript}}}
+      </div>
+      <button type="button" class="audiolog-transcript-toggle" data-action="toggleTranscript">
+        {{localize "AUDIOLOG.controls.showTranscript"}}
+      </button>
     </div>
   {{/if}}
 </div>

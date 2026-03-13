@@ -20,7 +20,9 @@
     "controls": {
       "play": "Play",
       "pause": "Pause",
-      "stop": "Stop"
+      "stop": "Stop",
+      "showTranscript": "Show transcript",
+      "hideTranscript": "Hide transcript"
     }
   },
   "TYPES": {
