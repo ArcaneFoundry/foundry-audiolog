@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Theme: Steampunk
+   Dark leather-brown with brass accents. Monospace typography.
+   ========================================================================== */
+
+.audiolog-theme-steampunk {
+  --audiolog-bg: #1e1810;
+  --audiolog-border: 2px solid rgba(205, 160, 80, 0.4);
+  --audiolog-radius: 6px;
+  --audiolog-shadow: 0 2px 12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(205, 160, 80, 0.1);
+  --audiolog-img-radius: 4px 4px 0 0;
+  --audiolog-controls-bg: rgba(18, 14, 8, 0.9);
+  --audiolog-controls-color: #cda050;
+  --audiolog-controls-hover: #e8c878;
+  --audiolog-transcript-color: rgba(205, 160, 80, 0.6);
+  --audiolog-transcript-bg: transparent;
+  --audiolog-transcript-fade: #1e1810;
+  --audiolog-font: 'Courier New', Courier, monospace;
+}
+
+/* Thicker border on controls bar for brass plate feel */
+.audiolog-theme-steampunk .audiolog-controls {
+  border-top: 2px solid rgba(205, 160, 80, 0.3);
+  border-bottom: 2px solid rgba(205, 160, 80, 0.2);
+}

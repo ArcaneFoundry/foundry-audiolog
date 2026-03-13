@@ -1,0 +1,24 @@
+/* ==========================================================================
+   Theme: Cyberpunk
+   Near-black with neon cyan + magenta accents. Sharp corners. Monospace.
+   ========================================================================== */
+
+.audiolog-theme-cyberpunk {
+  --audiolog-bg: #0e0e1a;
+  --audiolog-border: 1px solid rgba(0, 255, 200, 0.3);
+  --audiolog-radius: 4px;
+  --audiolog-shadow: 0 0 15px rgba(0, 255, 200, 0.1), 0 0 30px rgba(255, 0, 128, 0.05);
+  --audiolog-img-radius: 2px 2px 0 0;
+  --audiolog-controls-bg: rgba(8, 8, 18, 0.9);
+  --audiolog-controls-color: #00ffc8;
+  --audiolog-controls-hover: #fff;
+  --audiolog-transcript-color: rgba(0, 255, 200, 0.5);
+  --audiolog-transcript-bg: transparent;
+  --audiolog-transcript-fade: #0e0e1a;
+  --audiolog-font: 'Courier New', Courier, monospace;
+}
+
+/* Magenta accent on controls bar top edge */
+.audiolog-theme-cyberpunk .audiolog-controls {
+  border-top: 1px solid rgba(255, 0, 128, 0.3);
+}

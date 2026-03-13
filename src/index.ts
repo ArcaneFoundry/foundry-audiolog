@@ -6,10 +6,40 @@
  */
 
 import "./styles/index.css";
-import { createAudioLogPageModel } from "./models/AudioLogPageModel.js";
+import { createAudioLogPageModel, DEFAULT_THEME_IMAGES } from "./models/AudioLogPageModel.js";
 import { createAudioLogPageSheet, MODULE_ID } from "./sheets/AudioLogPageSheet.js";
 
 const PAGE_TYPE = `${MODULE_ID}.audiolog`;
+
+/**
+ * Auto-set the default theme image when a GM changes the theme
+ * and the imagePath field is currently empty.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+Hooks.on("preUpdateJournalEntryPage", (page: any, changes: any, _options: any, _userId: any) => {
+  // Only act on our page type
+  if (page.type !== PAGE_TYPE) return;
+
+  // Only act when theme is changing
+  const newTheme = changes?.system?.theme;
+  if (!newTheme) return;
+
+  const changesImagePath = changes?.system?.imagePath;
+  const currentImage = page.system.imagePath;
+  const defaultImages = new Set(Object.values(DEFAULT_THEME_IMAGES));
+  const isDefault = defaultImages.has(currentImage);
+  const defaultImage = DEFAULT_THEME_IMAGES[newTheme as keyof typeof DEFAULT_THEME_IMAGES];
+
+  // If the GM is explicitly setting a custom (non-default) image, don't interfere.
+  if (changesImagePath && !defaultImages.has(changesImagePath)) return;
+
+  // If the current imagePath is a custom GM-provided image and not being changed, leave it.
+  if (currentImage && !isDefault && !changesImagePath) return;
+
+  if (defaultImage) {
+    changes.system.imagePath = defaultImage;
+  }
+});
 
 Hooks.once("init", () => {
   console.log(`${MODULE_ID} | Initializing`);
