@@ -2,7 +2,7 @@
   "id": "foundry-audiolog",
   "title": "Foundry Audiology: Audio Logs for Foundry VTT",
   "description": "Adds a custom Audio Log JournalEntryPage type — immersive audio diaries with themed visual treatments, playback controls, and optional transcripts.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     {
       "name": "John Gallego",
@@ -30,7 +30,7 @@
   },
   "compatibility": {
     "minimum": "13",
-    "verified": "13"
+    "verified": "14.360"
   },
   "esmodules": [
     "index.js"

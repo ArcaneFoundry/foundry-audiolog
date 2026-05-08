@@ -8,7 +8,7 @@ export const MODULE_ID = "foundry-audiolog";
  * available at ES module parse time.
  */
 export function createAudioLogPageSheet() {
-  // fvtt-types V13 stubs for JournalEntryPageHandlebarsSheet are incomplete ("TODO: Stub").
+  // Community typings currently target Foundry V13 and leave this sheet incomplete.
   // Cast to `any` to allow class extension without type errors.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const BaseSheet = foundry.applications.sheets.journal
@@ -151,7 +151,7 @@ export function createAudioLogPageSheet() {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const page = this.document as any;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      new (FilePicker as any)({
+      new (foundry.applications.apps.FilePicker as any)({
         type: "audio",
         current: page.system.audioPath ?? "",
         callback: (path: string) => {
@@ -167,7 +167,7 @@ export function createAudioLogPageSheet() {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const page = this.document as any;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      new (FilePicker as any)({
+      new (foundry.applications.apps.FilePicker as any)({
         type: "image",
         current: page.system.imagePath ?? "",
         callback: (path: string) => {
