@@ -2,6 +2,13 @@
 
 ---
 
+## [0.1.1] — 2026-05-08
+
+- chore: release v0.1.1
+- Remove private AI workflow files
+- chore: release v0.1.0
+
+
 ## Unreleased
 
 - Verified Foundry VTT v14.360 compatibility metadata and v14 API namespace usage.
