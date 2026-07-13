@@ -8,8 +8,9 @@ export const MODULE_ID = "foundry-audiolog";
  * available at ES module parse time.
  */
 export function createAudioLogPageSheet() {
-  // Community typings currently target Foundry V13 and leave this sheet incomplete.
-  // Cast to `any` to allow class extension without type errors.
+  // Community typings do not fully model this ApplicationV2 sheet subclass.
+  // Cast to `any` to allow class extension without type errors while retaining
+  // concrete types for the module-owned surface below.
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const BaseSheet = foundry.applications.sheets.journal
     .JournalEntryPageHandlebarsSheet as any;
